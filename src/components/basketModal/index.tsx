@@ -24,7 +24,7 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
 
   return (
     <Modal
-      size="md"
+      size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
       show={show}
