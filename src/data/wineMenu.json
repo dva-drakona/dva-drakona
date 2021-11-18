@@ -1,0 +1,13 @@
+{
+    "title": "Меню",
+    "menuCard": [
+        {
+            "title": "Червоне",
+            "image": "/images/red-wine.png"
+        },
+        {
+            "title": "Біле",
+            "image": "/images/white-wine.png"
+        }
+    ]
+}

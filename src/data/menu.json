@@ -1,0 +1,20 @@
+{
+    "title": "Меню",
+    "menuCard": [
+        {
+            "title": "Пиво",
+            "href": "/beer",
+            "image": "/images/beer.png"
+        },
+        {
+            "title": "Вино",
+            "href": "/wine",
+            "image": "/images/wine.png"
+        },
+        {
+            "title": "Закуски",
+            "href": "/snack",
+            "image": "/images/snack.png"
+        }
+    ]
+}

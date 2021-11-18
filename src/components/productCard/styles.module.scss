@@ -1,0 +1,102 @@
+@import '@/styles/colors';
+
+.cardWrap {
+    position: relative;
+    display: flex;
+    padding: 15px 20px 15px 30px;
+    max-width: 340px;
+    margin: 0 auto 30px;
+}
+
+.cardWrap--primary {
+    border: 2px solid $white;
+    border-radius: 10px;
+}
+
+.cardWrap--secondary {
+   .basketCount, .title, .size {
+       color: $black;
+   }
+}
+
+.basket {
+    position: relative;
+    cursor: pointer;
+}
+
+.basketCount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: $red;
+}
+.info {
+    margin-left: 50px;
+    width: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    margin: 15px 0 5px !important;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.size {
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+}
+
+.price {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+}
+
+.count {
+    color: $black;
+    font-size: 35px;
+    line-height: 42px;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+.plus {
+   background-image: url(/images/plus-icon.svg);
+   background-repeat: no-repeat;
+   background-position: center;
+}
+
+.minus {
+    background-image: url(/images/minus-icon.svg);
+    background-repeat: no-repeat;
+   background-position: center;
+}
+
+.plus, .minus {
+    &.disabled {
+        background-color: #ffb0b0;
+    }
+}
+
+.btnClose {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}

@@ -1,0 +1,26 @@
+.aboutTitle {
+    max-width: 550px;
+    margin-bottom: 30px !important;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 700;
+
+    @media (min-width: 768px) {
+        font-size: 28px;
+        line-height: 33px;
+        margin: 0 auto 40px !important;
+        text-align: center;
+    }
+
+    @media (min-width: 992px) {
+        font-size: 30px;
+        line-height: 36px;
+        margin: 0 auto 50px !important;
+    }
+}
+
+.aboutContainer {
+    @media (min-width: 1200px) {
+        max-width: 900px !important;
+    }
+}

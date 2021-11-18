@@ -1,0 +1,32 @@
+@import 'colors';
+
+.button {
+    padding: 14px 29px;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 800;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button--primary{
+    background-color: $darkRed;
+    color: $white;
+
+    &:hover {
+        background-color: $red;
+    }
+}
+
+.button--circle{
+    transition: background-color 0.3s ease-in-out;
+    background-color: $darkRed;
+    color: $white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $red;
+    }
+}

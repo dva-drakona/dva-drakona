@@ -1,0 +1,99 @@
+{
+    "products": [
+        {
+            "title": "Червоне",
+            "productList": [
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Diablo Dark",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Сухе",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Солодке",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                }
+            ]
+        },
+        {
+            "title": "Біле",
+            "productList": [
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                },
+                {
+                    "title": "Diablo Dark Red",
+                    "size": "750",
+                    "price": "300",
+                    "img": "/images/wine-photo.png"
+                }
+            ]
+        }
+    ]
+   
+}

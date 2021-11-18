@@ -1,0 +1,13 @@
+.banner {
+    padding: 40px 0;
+
+    @media (min-width: 992px) {
+        padding: 60px 0;
+    }
+}
+
+.bannerContainer {
+    @media (min-width: 1200px) {
+        max-width: 1090px;
+    }
+}

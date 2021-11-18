@@ -1,0 +1,19 @@
+.product {
+    padding: 20px 0;
+}
+
+.productTitle {
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: 700;
+    margin-bottom: 30px !important;
+    text-align: center;
+
+    @media (min-width: 992px) {
+        margin-bottom: 40px !important;
+    }
+
+    @media (min-width: 1200px) {
+        margin-bottom: 50px !important;
+    }
+}
