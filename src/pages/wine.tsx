@@ -1,9 +1,8 @@
 import ContentLayout from '@/containers/contentLayout';
 import Menu from '@/components/menu';
-import Product from '@/components/product';
 
 import wineMenuData from '@/data/wineMenu.json';
-import wineProductData from '@/data/wineProduct.json';
+import wineProductData from '@/public/wine.json';
 
 export default function Wine() {
   return (

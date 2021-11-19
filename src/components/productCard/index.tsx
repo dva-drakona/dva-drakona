@@ -13,28 +13,48 @@ const ProductCard = ({
   price,
   variant,
   onBtnCloseClick,
+  description,
 }: ProductCardProps) => {
   const [count, setCount] = useState(1);
+
+  let products: any = null;
+  if (typeof window !== `undefined` && localStorage.products) {
+    products = JSON.parse(localStorage.products);
+  }
 
   const plusCount = () => {
     if (count < 20) {
       setCount(count + 1);
+      const findIndex = () =>
+        products.findIndex((el: any) => el.name === title);
+      products[findIndex()].count = count;
+      localStorage.setItem(`products`, JSON.stringify(products));
     }
   };
 
   const minusCount = () => {
     if (count > 0) {
       setCount(count - 1);
+      const findIndex = () =>
+        products.findIndex((el: any) => el.name === title);
+      products[findIndex()].count = count;
+      localStorage.setItem(`products`, JSON.stringify(products));
     }
   };
 
-  const addProductToCart = (name: string, size: number, price?: number) => {
+  const addProductToCart = (
+    name: string,
+    size: number,
+    price?: number,
+    count?: number,
+  ) => {
     const productsString = localStorage.getItem(`products`);
     let products = [];
     const product = {
       name: name,
       size: size,
       price: price,
+      count: count,
     };
     if (productsString) {
       products = JSON.parse(productsString);
@@ -53,6 +73,16 @@ const ProductCard = ({
           onClick={onBtnCloseClick}
         ></div>
       )}
+      {variant !== `secondary` && description && (
+        <div className={styles.descriptionWrap}>
+          <div className={styles.infoButton}>
+            <img src="/images/i-icon.png" alt="info" />
+          </div>
+          <div className={styles.description}>
+            <span>{description}</span>
+          </div>
+        </div>
+      )}
       <div className={styles.img}>
         <Image src={img} width={40} height={125} alt="product" />
       </div>
@@ -66,7 +96,7 @@ const ProductCard = ({
             <h2 className={styles.price}>{price} грн</h2>
             <div
               className={styles.basket}
-              onClick={() => addProductToCart(title, size, price)}
+              onClick={() => addProductToCart(title, size, price, count)}
             >
               <Image src={basket} alt="basket" />
               <span className={styles.basketCount}>+</span>

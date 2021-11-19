@@ -5,4 +5,8 @@ export interface ProductCardProps {
   price?: number;
   variant: string;
   onBtnCloseClick?: any;
+  onMinusClick?: any;
+  onPlusClick?: any;
+  count?: number;
+  description?: string;
 }

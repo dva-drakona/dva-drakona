@@ -22,6 +22,18 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
     }
   };
 
+  console.log(!!products);
+
+  const sum = (array: any) => {
+    let total = 0;
+    array.forEach((el: any) => {
+      total += el.price * el.count;
+    });
+    localStorage.setItem(`sum`, JSON.stringify(total));
+    console.log(localStorage);
+    return total;
+  };
+
   return (
     <Modal
       size="lg"
@@ -39,7 +51,7 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
         <button className="btn-close" onClick={onHide}></button>
       </Modal.Header>
       <Modal.Body>
-        {products &&
+        {products ? (
           products.map((el: any, i: number) => (
             <ProductCard
               key={i}
@@ -49,7 +61,14 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
               variant="secondary"
               onBtnCloseClick={() => onBtnCloseClick(el.name)}
             />
-          ))}
+          ))
+        ) : (
+          <h3 className={styles.addProductTitle}>Добавте товар</h3>
+        )}
+        <div className={styles.sum}>
+          <h4>До сплати: </h4>
+          <span>{products ? sum(products) : 0} грн</span>
+        </div>
 
         <div className="d-flex justify-content-center">
           <Link href="/">

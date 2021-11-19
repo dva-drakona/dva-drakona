@@ -6,3 +6,24 @@
     line-height: 36px;
     font-weight: 700;
 }
+
+.addProductTitle {
+    font-size: 26px;
+    line-height: 34px;
+    font-weight: 600;
+    color: $black;
+    margin-bottom: 20px !important;
+}
+
+.sum {
+    color: $black;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-bottom: 30px !important;
+    display: flex;
+    align-items: center;
+    h4 {
+        margin-right: 10px !important;
+    }
+}

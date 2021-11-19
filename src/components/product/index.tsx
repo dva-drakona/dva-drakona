@@ -15,6 +15,7 @@ const Product = ({ data, title }: ProductProps) => {
                 price={el.price}
                 size={el.size}
                 img={el.img}
+                description={el.description}
                 variant="primary"
               />
             </div>

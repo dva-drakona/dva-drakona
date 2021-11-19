@@ -1,0 +1,57 @@
+{
+    "products": [
+        {
+            "title": "Червоне",
+            "productList": [
+                {
+                    "title": "Кохання",
+                    "size": "500",
+                    "price": "50",
+                    "img": "/images/wine-photo.png",
+                    "description": "Гранатове червоне напівсолодке"
+                },
+                {
+                    "title": "Спокуса",
+                    "size": "500",
+                    "price": "48",
+                    "img": "/images/wine-photo.png",
+                    "description": "Сливове червоне напівсолодке"
+                },
+                {
+                    "title": "Мерло",
+                    "size": "500",
+                    "price": "50",
+                    "img": "/images/wine-photo.png",
+                    "description": "Червоне сухе"
+                }
+            ]
+        },
+        {
+            "title": "Біле",
+            "productList": [
+                {
+                    "title": "Біла орхідея",
+                    "size": "500",
+                    "price": "45",
+                    "img": "/images/wine-photo.png",
+                    "description": "Біле напівсолодке персикове"
+                },
+                {
+                    "title": "Шардоне",
+                    "size": "500",
+                    "price": "48",
+                    "img": "/images/wine-photo.png",
+                    "description": "Біле сухе"
+                },
+                {
+                    "title": "Віденський вальс",
+                    "size": "500",
+                    "price": "48",
+                    "img": "/images/wine-photo.png",
+                    "description": "Біле напівсолодке виноградове"
+                }
+            ]
+        }
+    ]
+   
+}
