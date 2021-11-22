@@ -1,12 +1,13 @@
 export interface ProductCardProps {
-  title: string;
+  /*  title: string;
   img: string;
   size: number;
-  price?: number;
+  price?: number; */
   variant: string;
   onBtnCloseClick?: any;
   onMinusClick?: any;
   onPlusClick?: any;
   count?: number;
   description?: string;
+  product: any;
 }

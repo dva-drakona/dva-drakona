@@ -1,38 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { BasketModalProps } from './types';
 import Link from 'next/link';
 import styles from './styles.module.scss';
 import ProductCard from '@/components/productCard';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  incrementQuantity,
+  decrementQuantity,
+  removeFromCart,
+} from '../../redux/cart.slice';
+import { ToastContainer, toast } from 'react-toastify';
 
 const BasketModal = ({ show, onHide }: BasketModalProps) => {
-  let products: any = null;
-  if (typeof window !== `undefined` && localStorage.products) {
-    products = JSON.parse(localStorage.products);
-  }
-  console.log(products);
+  const cart = useSelector((state: any) => state.cart);
+  const dispatch = useDispatch();
 
-  const onBtnCloseClick = (title: string) => {
-    if (products) {
-      const findIndex = () =>
-        products.findIndex((el: any) => el.name === title);
-      products.splice(findIndex(), 1);
-      localStorage.setItem(`products`, JSON.stringify(products));
-      console.log(products);
-    }
+  const getTotalPrice = () => {
+    return cart.reduce(
+      (accumulator: any, item: any) => accumulator + item.quantity * item.price,
+      0,
+    );
   };
 
-  console.log(!!products);
-
-  const sum = (array: any) => {
-    let total = 0;
-    array.forEach((el: any) => {
-      total += el.price * el.count;
-    });
-    localStorage.setItem(`sum`, JSON.stringify(total));
-    console.log(localStorage);
-    return total;
-  };
+  const notify = () => toast.error(`Товар видаленно!`);
 
   return (
     <Modal
@@ -41,6 +32,16 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
       centered
       show={show}
     >
+      <ToastContainer
+        position="top-center"
+        autoClose={1500}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+      />
       <Modal.Header>
         <Modal.Title
           id="contained-modal-title-vcenter"
@@ -51,23 +52,27 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
         <button className="btn-close" onClick={onHide}></button>
       </Modal.Header>
       <Modal.Body>
-        {products ? (
-          products.map((el: any, i: number) => (
+        {cart.length > 0 ? (
+          cart.map((item: any, i: number) => (
             <ProductCard
               key={i}
-              title={el.name}
-              size={el.size}
-              img="/images/wine-photo.png"
+              product={item}
               variant="secondary"
-              onBtnCloseClick={() => onBtnCloseClick(el.name)}
+              onBtnCloseClick={() => {
+                dispatch(removeFromCart(item.id));
+                notify();
+              }}
+              onMinusClick={() => dispatch(decrementQuantity(item.id))}
+              onPlusClick={() => dispatch(incrementQuantity(item.id))}
             />
           ))
         ) : (
           <h3 className={styles.addProductTitle}>Добавте товар</h3>
         )}
+
         <div className={styles.sum}>
           <h4>До сплати: </h4>
-          <span>{products ? sum(products) : 0} грн</span>
+          <span>{getTotalPrice() ? getTotalPrice() : 0} грн</span>
         </div>
 
         <div className="d-flex justify-content-center">

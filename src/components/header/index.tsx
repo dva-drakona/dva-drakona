@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
-import { HeaderProps } from './types';
+import { useSelector } from 'react-redux';
 
 import BasketModal from '@/components/basketModal';
 
@@ -13,13 +13,15 @@ import basket from '../../images/basket.svg';
 
 const Header = () => {
   const router = useRouter();
-  const [basketCount, setBasketCount] = useState(0);
 
-  useEffect(() => {
-    if (typeof window !== `undefined` && localStorage.products) {
-      setBasketCount(JSON.parse(localStorage.products).length);
-    }
-  });
+  const cart = useSelector((state: any) => state.cart);
+
+  const getItemsCount = () => {
+    return cart.reduce(
+      (accumulator: any, item: any) => accumulator + item.quantity,
+      0,
+    );
+  };
 
   const data = [
     {
@@ -107,7 +109,7 @@ const Header = () => {
                 <div>
                   <Image src={basket} alt="basket" />
                 </div>
-                <span className={styles.basketCount}>{basketCount}</span>
+                <span className={styles.basketCount}>{getItemsCount()}</span>
               </div>
             </div>
           </div>

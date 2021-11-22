@@ -10,14 +10,7 @@ const Product = ({ data, title }: ProductProps) => {
         <div className="row">
           {data.map((el: any, i: number) => (
             <div className="col-12 col-md-6 col-xl-4" key={i}>
-              <ProductCard
-                title={el.title}
-                price={el.price}
-                size={el.size}
-                img={el.img}
-                description={el.description}
-                variant="primary"
-              />
+              <ProductCard product={el} variant="primary" />
             </div>
           ))}
         </div>
