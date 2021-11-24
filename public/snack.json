@@ -1,0 +1,12 @@
+{
+    "productList": [
+        {
+            "id": 10,
+            "title": "Кохання",
+            "size": "500",
+            "price": "50",
+            "img": "/images/wine-photo.png",
+            "description": "Гранатове червоне напівсолодке"
+        }
+    ]
+}
