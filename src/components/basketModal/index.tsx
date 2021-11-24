@@ -11,6 +11,7 @@ import {
   removeFromCart,
 } from '../../redux/cart.slice';
 import { ToastContainer, toast } from 'react-toastify';
+import store, { saveState } from '../../redux/store';
 
 const BasketModal = ({ show, onHide }: BasketModalProps) => {
   const cart = useSelector((state: any) => state.cart);
@@ -61,9 +62,16 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
               onBtnCloseClick={() => {
                 dispatch(removeFromCart(item.id));
                 notify();
+                saveState(store.getState().cart);
               }}
-              onMinusClick={() => dispatch(decrementQuantity(item.id))}
-              onPlusClick={() => dispatch(incrementQuantity(item.id))}
+              onMinusClick={() => {
+                dispatch(decrementQuantity(item.id));
+                saveState(store.getState().cart);
+              }}
+              onPlusClick={() => {
+                dispatch(incrementQuantity(item.id));
+                saveState(store.getState().cart);
+              }}
             />
           ))
         ) : (

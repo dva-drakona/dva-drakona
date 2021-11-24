@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cart.slice';
 import { ToastContainer, toast } from 'react-toastify';
+import store, { saveState } from '../../redux/store';
 
 import basket from '../../images/basket.svg';
 
@@ -71,6 +72,7 @@ const ProductCard = ({
               onClick={() => {
                 dispatch(addToCart(product));
                 notify();
+                saveState(store.getState().cart);
               }}
             >
               <Image src={basket} alt="basket" />

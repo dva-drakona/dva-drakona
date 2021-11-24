@@ -1,8 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+export const loadState = (state: any) => {
+  try {
+    const serializedState = localStorage.getItem(state);
+    if (serializedState === null) {
+      return undefined;
+    }
+    return JSON.parse(serializedState);
+  } catch (err) {
+    return undefined;
+  }
+};
+const getInitialState = () => {
+  if (loadState('state')) {
+    return loadState('state');
+  } else {
+    return [];
+  }
+};
+
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: [],
+  initialState: getInitialState(),
   reducers: {
     addToCart: (state: any, action) => {
       const itemExists = state.find(

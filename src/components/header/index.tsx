@@ -46,6 +46,7 @@ const Header = () => {
   useEffect(() => {
     setOpenMobMenu(false);
     window.addEventListener(`resize`, () => setOpenMobMenu(false));
+    window.addEventListener(`scroll`, () => setOpenMobMenu(false));
   }, [router.pathname]);
 
   const isActive = (path: string) => router.pathname === path;

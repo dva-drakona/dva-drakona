@@ -6,6 +6,7 @@ import tel from '../../images/phone.svg';
 import location from '../../images/location.svg';
 import instagram from '../../images/instagram.png';
 import topNav from '../../images/top-navigation.svg';
+import 'scroll-behavior-polyfill';
 
 const Footer = () => {
   const scrollToTop = () => {
