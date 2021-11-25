@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Head from 'next/head'
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import Image from 'next/image';
@@ -59,7 +59,10 @@ const Header = () => {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <header className={styles.header}>
         <BasketModal show={modalShow} onHide={() => setModalShow(false)} />
@@ -113,7 +116,10 @@ const Header = () => {
 
             <div className="col-4 col-lg-3">
               <div className={styles.basketWrap}>
-                <div className={styles.basket} onClick={() => setModalShow(true)}>
+                <div
+                  className={styles.basket}
+                  onClick={() => setModalShow(true)}
+                >
                   <div>
                     <Image src={basket} alt="basket" />
                   </div>
@@ -123,7 +129,10 @@ const Header = () => {
             </div>
 
             <div className="col-4 d-lg-none">
-              <div className={styles.burger} onClick={() => setOpenMobMenu(true)}>
+              <div
+                className={styles.burger}
+                onClick={() => setOpenMobMenu(true)}
+              >
                 <span></span>
               </div>
             </div>
@@ -131,7 +140,6 @@ const Header = () => {
         </div>
       </header>
     </>
-    
   );
 };
 
