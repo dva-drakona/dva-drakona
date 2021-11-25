@@ -21,7 +21,6 @@ collections:
               {label: "title", name: "title", widget: "string"},
               {label: "product list", name: "productList", widget: "list", fields: [
                 {label: "id", name: "id", widget: "string"},
-                {label: "quantity", name: "quantity", widget: "number"},
                 {label: "title", name: "title", widget: "string"},
                 {label: "size", name: "size", widget: "number"},
                 {label: "price", name: "price", widget: "string"},
@@ -41,11 +40,26 @@ collections:
               {label: "title", name: "title", widget: "string"},
               {label: "product list", name: "productList", widget: "list", fields: [
                 {label: "id", name: "id", widget: "string"},
-                {label: "quantity", name: "quantity", widget: "number"},
                 {label: "title", name: "title", widget: "string"},
                 {label: "size", name: "size", widget: "number"},
                 {label: "price", name: "price", widget: "string"},
                 {label: "image", name: "img", widget: "image"},
                 {label: "description", name: "description", widget: "string"}
               ]}
+            ]}
+  - name: 'snack'
+    label: "Snack"
+    files:
+      - label: 'snack list'
+        name: 'products'
+        file: 'public/snack.json'
+        create: true
+        fields: 
+          - {label: "Product list", name: "productList", widget: "list", fields: [
+              {label: "id", name: "id", widget: "string"},
+              {label: "title", name: "title", widget: "string"},
+              {label: "size", name: "size", widget: "number"},
+              {label: "price", name: "price", widget: "string"},
+              {label: "image", name: "img", widget: "image"},
+              {label: "description", name: "description", widget: "string"}
             ]}
