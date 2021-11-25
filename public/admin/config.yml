@@ -23,7 +23,27 @@ collections:
                 {label: "id", name: "id", widget: "string"},
                 {label: "quantity", name: "quantity", widget: "number"},
                 {label: "title", name: "title", widget: "string"},
-                {label: "size", name: "500", widget: "number"},
+                {label: "size", name: "size", widget: "number"},
+                {label: "price", name: "price", widget: "string"},
+                {label: "image", name: "img", widget: "image"},
+                {label: "description", name: "description", widget: "string"}
+              ]}
+            ]}
+  - name: 'wine'
+    label: "Wine"
+    files:
+      - label: 'Wine list'
+        name: 'products'
+        file: 'public/wine.json'
+        create: true
+        fields: 
+          - {label: "Products", name: "products", widget: "list", fields: [
+              {label: "title", name: "title", widget: "string"},
+              {label: "product list", name: "productList", widget: "list", fields: [
+                {label: "id", name: "id", widget: "string"},
+                {label: "quantity", name: "quantity", widget: "number"},
+                {label: "title", name: "title", widget: "string"},
+                {label: "size", name: "size", widget: "number"},
                 {label: "price", name: "price", widget: "string"},
                 {label: "image", name: "img", widget: "image"},
                 {label: "description", name: "description", widget: "string"}
