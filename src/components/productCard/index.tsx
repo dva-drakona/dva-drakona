@@ -57,10 +57,10 @@ const ProductCard = ({
         <div>
           <h3 className={styles.title}>{product.title}</h3>
           {variant === `primary` ? (
-            <span className={styles.size}>{product.size} ml</span>
+            <span className={styles.size}>{product.size} {product.massSystem}</span>
           ) : (
             <span className={styles.size}>
-              {product.price} грн / {product.size} ml
+              {product.price} грн / {product.size} {product.massSystem}
             </span>
           )}
         </div>

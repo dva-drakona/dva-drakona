@@ -4,6 +4,7 @@
             "id": 100,
             "title": "Кохання",
             "size": "500",
+            "massSystem": "g",
             "price": "50",
             "img": "/images/wine-photo.png",
             "description": "Гранатове червоне напівсолодке"

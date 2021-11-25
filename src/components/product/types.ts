@@ -1,4 +1,4 @@
 export interface ProductProps {
   data: any;
-  title: string;
+  title?: string;
 }

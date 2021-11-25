@@ -7,6 +7,7 @@
                     "id": 10,
                     "title": "Кохання",
                     "size": "500",
+                    "massSystem": "ml",
                     "price": "50",
                     "img": "/images/wine-photo.png",
                     "description": "Гранатове червоне напівсолодке"
@@ -15,6 +16,7 @@
                     "id": 11,
                     "title": "Спокуса",
                     "size": "500",
+                    "massSystem": "ml",
                     "price": "48",
                     "img": "/images/wine-photo.png",
                     "description": "Сливове червоне напівсолодке"
@@ -36,6 +38,7 @@
                     "id": 13,
                     "title": "Біла орхідея",
                     "size": "500",
+                    "massSystem": "ml",
                     "price": "45",
                     "img": "/images/wine-photo.png",
                     "description": "Біле напівсолодке персикове"
@@ -44,6 +47,7 @@
                     "id": 14,
                     "title": "Шардоне",
                     "size": "500",
+                    "massSystem": "ml",
                     "price": "48",
                     "img": "/images/wine-photo.png",
                     "description": "Біле сухе"
@@ -52,6 +56,7 @@
                     "id": 15,
                     "title": "Віденський вальс",
                     "size": "500",
+                    "massSystem": "ml",
                     "price": "48",
                     "img": "/images/wine-photo.png",
                     "description": "Біле напівсолодке виноградове"
