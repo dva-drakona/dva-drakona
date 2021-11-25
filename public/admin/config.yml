@@ -21,9 +21,9 @@ collections:
               {label: "title", name: "title", widget: "string"},
               {label: "product list", name: "productList", widget: "list", fields: [
                 {label: "id", name: "id", widget: "string"},
-                {label: "quantity", name: "quantity", widget: "string"},
+                {label: "quantity", name: "quantity", widget: "number"},
                 {label: "title", name: "title", widget: "string"},
-                {label: "size", name: "500", widget: "string"},
+                {label: "size", name: "500", widget: "number"},
                 {label: "price", name: "price", widget: "string"},
                 {label: "image", name: "img", widget: "image"},
                 {label: "description", name: "description", widget: "string"}
