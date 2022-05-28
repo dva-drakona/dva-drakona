@@ -27,3 +27,10 @@
         margin-right: 10px !important;
     }
 }
+
+.orderButton {
+    &.disabled {
+        background-color: $dimRed;
+        cursor: not-allowed;
+    }
+}

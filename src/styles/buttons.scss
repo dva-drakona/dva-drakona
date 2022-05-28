@@ -7,6 +7,9 @@
     font-weight: 800;
     border-radius: 10px;
     transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    outline: none;
+    border: none;
 }
 
 .button--primary{
@@ -25,6 +28,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
+    cursor: pointer;
 
     &:hover {
         background-color: $red;

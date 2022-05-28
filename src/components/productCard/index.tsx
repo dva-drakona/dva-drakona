@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ProductCardProps } from './types';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
@@ -20,9 +20,18 @@ const ProductCard = ({
   const dispatch = useDispatch();
   const notify = () => toast.success(`Товар добавленно в корзину!`);
 
+  const [basketAnimation, setBasketAnimation] = useState(false);
+
+  const animate = () => {
+    setBasketAnimation(true);
+    setTimeout(() => setBasketAnimation(false), 2000);
+  };
+
   return (
     <div
-      className={classNames(styles.cardWrap, styles[`cardWrap--${variant}`])}
+      className={classNames(styles.cardWrap, styles[`cardWrap--${variant}`], {
+        [styles.sale]: product.sale,
+      })}
     >
       <ToastContainer
         position="top-center"
@@ -68,13 +77,19 @@ const ProductCard = ({
         </div>
         {variant === `primary` && (
           <div className="d-flex justify-content-between align-items-center">
+            {product.sale && product.oldPrice && (
+              <span className={styles.oldPrice}>{product.oldPrice} грн</span>
+            )}
             <h2 className={styles.price}>{product.price} грн</h2>
             <div
-              className={styles.basket}
+              className={classNames(styles.basket, {
+                [styles.basketAnimation]: basketAnimation,
+              })}
               onClick={() => {
                 dispatch(addToCart(product));
                 notify();
                 saveState(store.getState().cart);
+                animate();
               }}
             >
               <Image src={basket} alt="basket" />

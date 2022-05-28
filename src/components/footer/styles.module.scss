@@ -17,6 +17,13 @@
 .navItem {
     margin-bottom: 20px;
     opacity: 0.8;
+    transition: 0.2s ease-in-out;
+    color: $white;
+
+    &:hover {
+        opacity: 1;
+        color: $lightYellow;
+    }
 
     &:last-child {
         margin-bottom: 0;
@@ -46,6 +53,12 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    color: $white;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+        color: $lightYellow;
+    }
 
     &:last-child {
         margin-bottom: 0;
@@ -67,6 +80,12 @@
 
 .topNavImg {
     cursor: pointer;
+    opacity: 0.9;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
 .rights {

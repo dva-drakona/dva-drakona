@@ -24,6 +24,12 @@ const Header = () => {
     );
   };
 
+  const [basketCount, setBasketCount] = useState<number>();
+
+  useEffect(() => {
+    setBasketCount(getItemsCount());
+  }, [cart]);
+
   const data = [
     {
       href: `/beer`,
@@ -77,15 +83,17 @@ const Header = () => {
           ></div>
           <h2 className={styles.mobileTitle}>Меню</h2>
           {data.map((el: any, i: number) => (
-            <Link href={el.href} key={i}>
-              <a
-                className={classNames(styles.mobileNavItem, {
-                  [styles.active]: isActive(el.href),
-                })}
-              >
-                {el.name}
-              </a>
-            </Link>
+            <div key={i}>
+              <Link href={el.href}>
+                <a
+                  className={classNames(styles.mobileNavItem, {
+                    [styles.active]: isActive(el.href),
+                  })}
+                >
+                  {el.name}
+                </a>
+              </Link>
+            </div>
           ))}
         </div>
         <div className="container">
@@ -123,7 +131,7 @@ const Header = () => {
                   <div>
                     <Image src={basket} alt="basket" />
                   </div>
-                  <span className={styles.basketCount}>{getItemsCount()}</span>
+                  <span className={styles.basketCount}>{basketCount}</span>
                 </div>
               </div>
             </div>

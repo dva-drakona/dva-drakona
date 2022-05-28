@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MenuCard from '@/components/menuCard';
 import styles from './styles.module.scss';
 import { MenuProps } from './types';
@@ -12,6 +12,7 @@ export default function Menu({
   productData,
 }: MenuProps) {
   const [category, setCategory] = useState(``);
+
   return (
     <>
       <section className={styles.menu}>

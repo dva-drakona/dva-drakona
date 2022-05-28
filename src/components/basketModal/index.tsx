@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { BasketModalProps } from './types';
-import Link from 'next/link';
 import styles from './styles.module.scss';
 import ProductCard from '@/components/productCard';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,6 +11,7 @@ import {
 } from '../../redux/cart.slice';
 import { ToastContainer, toast } from 'react-toastify';
 import store, { saveState } from '../../redux/store';
+import classNames from 'classnames';
 
 const BasketModal = ({ show, onHide }: BasketModalProps) => {
   const cart = useSelector((state: any) => state.cart);
@@ -84,9 +84,18 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
         </div>
 
         <div className="d-flex justify-content-center">
-          <Link href="/">
-            <a className="button button--primary">Сплатити</a>
-          </Link>
+          <button
+            disabled={getTotalPrice() === 0}
+            className={classNames(
+              `button button--primary`,
+              styles.orderButton,
+              {
+                [styles.disabled]: getTotalPrice() === 0,
+              },
+            )}
+          >
+            Сплатити
+          </button>
         </div>
       </Modal.Body>
     </Modal>

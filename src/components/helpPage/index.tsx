@@ -8,7 +8,7 @@ const HelpPage = ({ title }: HelpPageProps) => {
       <h1 className={styles.title}>{title}</h1>
       <div className="d-flex justify-content-center">
         <Link href="/">
-          <a className="button button--primary">Повернуться назад</a>
+          <a className="button button--primary">Повернутись на головну</a>
         </Link>
       </div>
     </section>
