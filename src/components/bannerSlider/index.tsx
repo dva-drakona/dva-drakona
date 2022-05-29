@@ -15,11 +15,11 @@ const BannerSlider = ({ data }: BannerSliderProps) => {
     autoplaySpeed: 8000,
   };
   return (
-    <div>
+    <Slider {...settings}>
       {data.images.map((el: any, i: number) => (
         <Image src={el.img} key={i} width={1090} height={500} alt="banner" />
       ))}
-    </div>
+    </Slider>
   );
 };
 
