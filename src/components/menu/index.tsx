@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MenuCard from '@/components/menuCard';
 import styles from './styles.module.scss';
 import { MenuProps } from './types';
@@ -33,6 +33,7 @@ export default function Menu({
                   image={el.image}
                   variant={cardVariant}
                   onClick={() => setCategory(el.title)}
+                  active={category === el.title}
                 />
               </div>
             ))}

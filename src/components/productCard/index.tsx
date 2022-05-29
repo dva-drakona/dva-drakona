@@ -30,7 +30,7 @@ const ProductCard = ({
   return (
     <div
       className={classNames(styles.cardWrap, styles[`cardWrap--${variant}`], {
-        [styles.sale]: product.sale,
+        [styles.sale]: product.sale && variant === `primary`,
       })}
     >
       <ToastContainer

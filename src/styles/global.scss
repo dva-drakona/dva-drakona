@@ -61,6 +61,8 @@ body{
 
 .body--secondary {
   background-image: url(../images/category-background.png);
+  background-size: contain;
+  background-position: left top;
 }
 
 .slick-slider, .slick-list {

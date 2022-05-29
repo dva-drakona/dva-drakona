@@ -5,7 +5,14 @@ import Link from 'next/link';
 import styles from './styles.module.scss';
 import Image from 'next/image';
 
-const MenuCard = ({ title, href, image, variant, onClick }: MenuCardProps) => {
+const MenuCard = ({
+  title,
+  href,
+  image,
+  variant,
+  onClick,
+  active,
+}: MenuCardProps) => {
   const router = useRouter();
   const isActive = (path: string) => router.pathname === path;
   return (
@@ -33,6 +40,7 @@ const MenuCard = ({ title, href, image, variant, onClick }: MenuCardProps) => {
           className={classNames(
             styles.menuCard,
             styles[`menuCard--${variant}`],
+            { [styles.active]: active },
           )}
           onClick={onClick}
         >

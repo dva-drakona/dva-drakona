@@ -4,4 +4,5 @@ export interface MenuCardProps {
   image: any;
   variant: string;
   onClick?: any;
+  active?: boolean;
 }
