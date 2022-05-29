@@ -12,15 +12,15 @@ export const loadState = (state: any) => {
   }
 };
 const getInitialState = () => {
-  if (loadState('state')) {
-    return loadState('state');
+  if (loadState(`state`)) {
+    return loadState(`state`);
   } else {
     return [];
   }
 };
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: `cart`,
   initialState: getInitialState(),
   reducers: {
     addToCart: (state: any, action) => {
