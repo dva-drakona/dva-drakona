@@ -34,3 +34,30 @@
         cursor: not-allowed;
     }
 }
+
+.discount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.discountTitle {
+    color: $black;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+    margin-right: 10px !important;
+}
+
+.discountInput {
+    min-width: 240px;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 500;
+    color: $black;
+    outline: none;
+    border: 1px solid $darkGrey;
+    padding: 4px 6px;
+}

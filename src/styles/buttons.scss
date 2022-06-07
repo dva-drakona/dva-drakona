@@ -12,12 +12,42 @@
     border: none;
 }
 
+.button--sm {
+    padding: 8px 15px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 800;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
 .button--primary{
     background-color: $darkRed;
     color: $white;
 
     &:hover {
         background-color: $red;
+    }
+}
+
+.button--secondary {
+    background-color: $orange;
+    color: $white;
+
+    &:hover {
+        background-color: $darkOrange;
+    }
+}
+
+.button--success {
+    background-color: $green;
+    color: $white;
+
+    &:hover {
+        background-color: $darkGreen;
     }
 }
 

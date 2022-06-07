@@ -72,3 +72,12 @@ collections:
               {label: "sale", name: "sale", widget: "boolean", required: false},
               {label: "old price", name: "oldPrice", widget: "string", required: false}
             ]}
+  - name: 'discount'
+    label: "Discount"
+    files:
+      - label: 'Discount list'
+        name: 'discount'
+        file: 'public/discount.json'
+        create: true
+        fields: 
+          - {label: "Discounts", name: "discounts", widget: "list"}

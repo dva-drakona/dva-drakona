@@ -83,6 +83,16 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
           <span>{getTotalPrice() ? getTotalPrice() : 0} грн</span>
         </div>
 
+        <div className={styles.discount}>
+          <div className="d-flex align-items-center">
+            <h3 className={styles.discountTitle}>Промокод:</h3>
+            <input type="text" className={styles.discountInput} />
+          </div>
+          <button className={classNames(`button--sm button--secondary`)}>
+            Застосувати
+          </button>
+        </div>
+
         <div className="d-flex justify-content-center">
           <button
             disabled={getTotalPrice() === 0}
