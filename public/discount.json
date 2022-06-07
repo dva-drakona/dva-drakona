@@ -1,0 +1,12 @@
+{
+  "discounts": [
+    {
+      "code": "test",
+      "discount": 20
+    },
+    {
+      "code": "test2",
+      "discount": 25
+    }
+  ]
+}
