@@ -80,4 +80,7 @@ collections:
         file: 'public/discount.json'
         create: true
         fields: 
-          - {label: "Discounts", name: "discounts", widget: "list", allow_add: true, create: true}
+          - {label: "Discounts", name: "discounts", widget: "list", fields: [
+              {label: "Code", name: "code", widget: "string"},
+              {label: "Discount", name: "discount", widget: "number", value_type: "int"}
+            ]}
