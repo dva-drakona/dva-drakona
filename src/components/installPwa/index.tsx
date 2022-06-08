@@ -10,34 +10,24 @@ const InstallPwa = () => {
   const [isAppInstallable, setSsAppInstallable] = useState<any>(true);
   const [isAppInstalled, setIsAppInstalled] = useState<any>();
 
-  function getCookie(cname: any) {
-    const name = cname + `=`;
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const ca = decodedCookie.split(`;`);
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ` `) {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return ``;
-  }
-
   useEffect(() => {
     if (!(`serviceWorker` in navigator)) {
       setSsAppInstallable(false);
     }
 
-    const addCookies = () => {
-      document.cookie = `appinstalled=true;expires=Tue, 30 Mar 2023 23:59:59 GMT;path=/`;
-    };
+    function isPWA() {
+      const iOSCanInstall = `standalone` in window.navigator;
+      return (
+        iOSCanInstall == true || // iOS PWA Standalone
+        document.referrer.includes(`android-app://`) || // Android Trusted Web App
+        [`fullscreen`, `standalone`, `minimal-ui`].some(
+          (displayMode) =>
+            window.matchMedia(`(display-mode: ` + displayMode + `)`).matches,
+        )
+      ); // Chrome PWA (supporting fullscreen, standalone, minimal-ui)
+    }
 
-    window.addEventListener(`appinstalled`, addCookies);
-
-    window.addEventListener(`beforeinstallprompt`, addCookies);
+    setIsAppInstalled(isPWA());
 
     const handler = (e: any) => {
       e.preventDefault();
@@ -68,13 +58,10 @@ const InstallPwa = () => {
       }
     }
     setIsIOS(isThisDeviceRunningiOS());
-    setIsAppInstalled(getCookie(`appinstalled`));
 
     return () => {
       window.removeEventListener(`transitionend`, handler);
       window.removeEventListener(`beforeinstallprompt`, handler);
-      window.removeEventListener(`appinstalled`, addCookies);
-      window.removeEventListener(`beforeinstallprompt`, addCookies);
     };
   }, []);
 
