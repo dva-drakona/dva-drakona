@@ -115,8 +115,13 @@
     margin-bottom: 30px !important;
     display: flex;
     align-items: center;
+    width: 100%;
     h4 {
         margin-right: 10px !important;
+    }
+
+    @media (min-width: 576px) {
+        width: auto;
     }
 }
 

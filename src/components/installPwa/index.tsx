@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const InstallPwa = () => {
   const [isMessageShow, setIsMessageShow] = useState<boolean>(true);
-  const [supportsPWA, setSupportsPWA] = useState<boolean>(false);
+  const [supportsPWA, setSupportsPWA] = useState<boolean>(true);
   const [promptInstall, setPromptInstall] = useState<any>(null);
 
   useEffect(() => {

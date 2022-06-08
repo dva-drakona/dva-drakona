@@ -114,7 +114,7 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
           <h3 className={styles.addProductTitle}>Добавте товар</h3>
         )}
 
-        <div className="d-flex align-items-center justify-content-between">
+        <div className="d-flex align-items-center justify-content-between flex-wrap">
           <div className={styles.sum}>
             <h4>До сплати: </h4>
             <div className="d-flex align-items-center">
