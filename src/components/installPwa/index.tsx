@@ -15,19 +15,20 @@ const InstallPwa = () => {
       setSsAppInstallable(false);
     }
 
-    function isPWA() {
+    function isInstalled() {
       const iOSCanInstall = `standalone` in window.navigator;
-      return (
-        iOSCanInstall == true || // iOS PWA Standalone
-        document.referrer.includes(`android-app://`) || // Android Trusted Web App
-        [`fullscreen`, `standalone`, `minimal-ui`].some(
-          (displayMode) =>
-            window.matchMedia(`(display-mode: ` + displayMode + `)`).matches,
-        )
-      ); // Chrome PWA (supporting fullscreen, standalone, minimal-ui)
+      if (iOSCanInstall) return true;
+
+      // For Android
+      if (window.matchMedia(`(display-mode: standalone)`).matches) return true;
+
+      // If neither is true, it's not installed
+      return false;
     }
 
-    setIsAppInstalled(isPWA());
+    setIsAppInstalled(isInstalled());
+    console.log(isInstalled());
+    console.log(isAppInstallable);
 
     const handler = (e: any) => {
       e.preventDefault();
@@ -64,6 +65,9 @@ const InstallPwa = () => {
       window.removeEventListener(`beforeinstallprompt`, handler);
     };
   }, []);
+  console.log(isAppInstalled);
+  console.log(isAppInstallable);
+  console.log(isMessageShow);
 
   const onInstallClick = (evt: any) => {
     evt.preventDefault();
