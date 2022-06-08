@@ -20,6 +20,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <Head>
+        <link rel="shortcut icon" href="/static/favicon.ico"></link>
+        <title>Dva Drakona</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
@@ -28,7 +30,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />
-        <title>Dva Drakona</title>
 
         <link rel="manifest" href="/manifest.webmanifest" />
         <link
