@@ -8,6 +8,7 @@ import store from '../redux/store';
 import Preloader from '@/components/preloader';
 import classNames from 'classnames';
 import Head from 'next/head';
+import InstallPwa from '@/components/installPwa';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(true);
@@ -43,11 +44,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           sizes="32x32"
         />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
-        <meta name="theme-color" content="#317EFB" />
+        <meta name="theme-color" content="#2C2B29" />
       </Head>
       <Preloader loading={loading} />
       <div className={classNames(loading ? `opacity-0` : `opacity-100`)}>
         <Component {...pageProps} />
+        <InstallPwa />
       </div>
     </Provider>
   );

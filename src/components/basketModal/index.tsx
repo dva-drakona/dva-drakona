@@ -161,6 +161,7 @@ const BasketModal = ({ show, onHide }: BasketModalProps) => {
                 isDiscountApplied ? `button--success` : `button--secondary`
               }`,
               { [styles.discountButtonDisabled]: isDiscountApplied },
+              styles.discountButton,
             )}
             onClick={() => checkDiscount()}
             disabled={isDiscountApplied}
