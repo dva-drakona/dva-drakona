@@ -78,7 +78,7 @@ const InstallPwa = () => {
     return null;
   }
 
-  return isMessageShow && supportsPWA && !isAppInstalled ? (
+  return isMessageShow && !isAppInstalled ? (
     <div className={styles.container}>
       {isIOS && <h1>IOS</h1>}
       <div
@@ -86,8 +86,7 @@ const InstallPwa = () => {
         onClick={() => setIsMessageShow(false)}
       />
       <h3 className={styles.title}>
-        Встановіть додаток на телефон щоб заощаджувати час і легше нас
-        знаходити!
+        Встановіть додаток щоб заощаджувати час і легше нас знаходити!
       </h3>
       <button className="button--sm button--secondary" onClick={onInstallClick}>
         Встановити
