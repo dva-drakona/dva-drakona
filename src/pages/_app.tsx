@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="keywords" content="Keywords" />
         <title>Dva Drakona</title>
 
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <link
           href="/favicon-16x16.png"
           rel="icon"

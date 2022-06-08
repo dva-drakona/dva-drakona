@@ -3,7 +3,7 @@
     "background_color": "#db9d0b",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "/?source=pwa",
     "name": "Dva Drakona",
     "short_name": "2 Drakona",
     "icons": [
