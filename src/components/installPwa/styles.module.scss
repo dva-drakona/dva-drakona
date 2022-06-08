@@ -15,6 +15,10 @@
     transform: translateX(-50%);
     z-index: 2000;
 
+    @media all and (display-mode: standalone) {
+       display: none;
+      }
+
 
     @media (min-width: 992px) {
         display: none;
