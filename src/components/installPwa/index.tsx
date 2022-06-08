@@ -10,25 +10,34 @@ const InstallPwa = () => {
   const [isAppInstallable, setSsAppInstallable] = useState<any>(true);
   const [isAppInstalled, setIsAppInstalled] = useState<any>();
 
+  function getCookie(cname: any) {
+    const name = cname + `=`;
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(`;`);
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ` `) {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return ``;
+  }
+
   useEffect(() => {
     if (!(`serviceWorker` in navigator)) {
       setSsAppInstallable(false);
     }
 
-    function isInstalled() {
-      const iOSCanInstall = `standalone` in window.navigator;
-      if (iOSCanInstall) return true;
+    const addCookies = () => {
+      document.cookie = `appinstalled=true;expires=Tue, 30 Mar 2023 23:59:59 GMT;path=/`;
+    };
 
-      // For Android
-      if (window.matchMedia(`(display-mode: standalone)`).matches) return true;
+    window.addEventListener(`appinstalled`, addCookies);
 
-      // If neither is true, it's not installed
-      return false;
-    }
-
-    setIsAppInstalled(isInstalled());
-    console.log(isInstalled());
-    console.log(isAppInstallable);
+    window.addEventListener(`beforeinstallprompt`, addCookies);
 
     const handler = (e: any) => {
       e.preventDefault();
@@ -59,15 +68,15 @@ const InstallPwa = () => {
       }
     }
     setIsIOS(isThisDeviceRunningiOS());
+    setIsAppInstalled(getCookie(`appinstalled`));
 
     return () => {
       window.removeEventListener(`transitionend`, handler);
       window.removeEventListener(`beforeinstallprompt`, handler);
+      window.removeEventListener(`appinstalled`, addCookies);
+      window.removeEventListener(`beforeinstallprompt`, addCookies);
     };
   }, []);
-  console.log(isAppInstalled);
-  console.log(isAppInstallable);
-  console.log(isMessageShow);
 
   const onInstallClick = (evt: any) => {
     evt.preventDefault();
