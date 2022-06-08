@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
-import Image from 'next/image';
 
 const InstallPwa = () => {
   const [isMessageShow, setIsMessageShow] = useState<boolean>(true);
   const [supportsPWA, setSupportsPWA] = useState<boolean>(true);
   const [promptInstall, setPromptInstall] = useState<any>(null);
   const [isIOS, setIsIOS] = useState<boolean>();
+  const [isAppInstallable, setSsAppInstallable] = useState<any>(true);
   const [isAppInstalled, setIsAppInstalled] = useState<any>();
 
   function getCookie(cname: any) {
@@ -27,12 +27,9 @@ const InstallPwa = () => {
   }
 
   useEffect(() => {
-    const handler = (e: any) => {
-      e.preventDefault();
-      setSupportsPWA(true);
-      setPromptInstall(e);
-    };
-    window.addEventListener(`beforeinstallprompt`, handler);
+    if (!(`serviceWorker` in navigator)) {
+      setSsAppInstallable(false);
+    }
 
     const addCookies = () => {
       document.cookie = `appinstalled=true;expires=Tue, 30 Mar 2023 23:59:59 GMT;path=/`;
@@ -41,6 +38,14 @@ const InstallPwa = () => {
     window.addEventListener(`appinstalled`, addCookies);
 
     window.addEventListener(`beforeinstallprompt`, addCookies);
+
+    const handler = (e: any) => {
+      e.preventDefault();
+      setSupportsPWA(true);
+      setPromptInstall(e);
+    };
+    window.addEventListener(`beforeinstallprompt`, handler);
+
     function isThisDeviceRunningiOS() {
       if (
         [
@@ -84,7 +89,7 @@ const InstallPwa = () => {
     return null;
   }
 
-  return isMessageShow && !isAppInstalled ? (
+  return isMessageShow && isAppInstallable && !isAppInstalled ? (
     <div className={styles.container}>
       <div
         className={classNames(styles.closeButton, `btn-close`)}
@@ -98,11 +103,16 @@ const InstallPwa = () => {
           </h3>
           <ul>
             <li className={styles.step}>
-              Натисніть кнопку поділитись <img src="/images/share-safari.png" />
+              Натисніть кнопку поділитись
+              <div className={styles.stepImgWrap}>
+                <img src="/images/share-safari.png" />
+              </div>
             </li>
             <li className={styles.step}>
               Додайте значок на головний екран
-              <img src="/images/save-on-home-page.png" />
+              <div className={styles.stepImgWrap}>
+                <img src="/images/save-on-home-page.png" />
+              </div>
             </li>
           </ul>
         </div>

@@ -41,14 +41,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     color: $white;
     font-size: 15px;
     line-height: 1;
     font-weight: 400;
     margin: 10px 0;
+}
+
+.stepImgWrap {
+    width: 100%;
+    margin-top: 8px;
+
+    @media (min-width: 576px) {
+        width: auto;
+        margin-top: 0;
+        margin-left: 10px;
+    }
 
     img {
         height: 40px;
-        margin-left: 10px;
+        margin: 0 auto;
+        display: block;
     }
 }
