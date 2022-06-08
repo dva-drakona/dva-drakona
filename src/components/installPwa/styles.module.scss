@@ -18,6 +18,9 @@
     @media all and (display-mode: standalone) {
         display: none;
        }
+       @media all and (display-mode: fullscreen) {
+        display: none;
+       }
 }
 
 .title {
