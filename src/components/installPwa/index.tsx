@@ -12,22 +12,22 @@ const InstallPwa = () => {
       e.preventDefault();
       setSupportsPWA(true);
       setPromptInstall(e);
-      console.log(e);
     };
     window.addEventListener(`beforeinstallprompt`, handler);
+
     return () => window.removeEventListener(`transitionend`, handler);
   }, []);
 
-  const onInstallClick = (e: any) => {
-    console.log(`test`);
-    console.log(promptInstall);
-    e.preventDefault();
-    if (promptInstall) {
-      promptInstall.prompt();
-    } else {
+  const onInstallClick = (evt: any) => {
+    evt.preventDefault();
+    if (!promptInstall) {
       return;
     }
+    promptInstall.prompt();
   };
+  if (!supportsPWA) {
+    return null;
+  }
 
   return isMessageShow && supportsPWA ? (
     <div className={styles.container}>
@@ -39,10 +39,7 @@ const InstallPwa = () => {
         Встановіть додаток на телефон щоб заощаджувати час і легше нас
         знаходити!
       </h3>
-      <button
-        className="button--sm button--secondary"
-        onClick={(e) => onInstallClick(e)}
-      >
+      <button className="button--sm button--secondary" onClick={onInstallClick}>
         Встановити
       </button>
     </div>
