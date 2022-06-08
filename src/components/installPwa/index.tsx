@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
+import Image from 'next/image';
 
 const InstallPwa = () => {
   const [isMessageShow, setIsMessageShow] = useState<boolean>(true);
@@ -33,13 +34,13 @@ const InstallPwa = () => {
     };
     window.addEventListener(`beforeinstallprompt`, handler);
 
-    window.addEventListener(`appinstalled`, function () {
+    const addCookies = () => {
       document.cookie = `appinstalled=true;expires=Tue, 30 Mar 2023 23:59:59 GMT;path=/`;
-    });
+    };
 
-    window.addEventListener(`beforeinstallprompt`, function () {
-      document.cookie = `appinstalled=false;expires=Tue, 30 Mar 2023 23:59:59 GMT;path=/`;
-    });
+    window.addEventListener(`appinstalled`, addCookies);
+
+    window.addEventListener(`beforeinstallprompt`, addCookies);
     function isThisDeviceRunningiOS() {
       if (
         [
@@ -64,7 +65,12 @@ const InstallPwa = () => {
     setIsIOS(isThisDeviceRunningiOS());
     setIsAppInstalled(getCookie(`appinstalled`));
 
-    return () => window.removeEventListener(`transitionend`, handler);
+    return () => {
+      window.removeEventListener(`transitionend`, handler);
+      window.removeEventListener(`beforeinstallprompt`, handler);
+      window.removeEventListener(`appinstalled`, addCookies);
+      window.removeEventListener(`beforeinstallprompt`, addCookies);
+    };
   }, []);
 
   const onInstallClick = (evt: any) => {
@@ -80,17 +86,39 @@ const InstallPwa = () => {
 
   return isMessageShow && !isAppInstalled ? (
     <div className={styles.container}>
-      {isIOS && <h1>IOS</h1>}
       <div
         className={classNames(styles.closeButton, `btn-close`)}
         onClick={() => setIsMessageShow(false)}
       />
-      <h3 className={styles.title}>
-        Встановіть додаток щоб заощаджувати час і легше нас знаходити!
-      </h3>
-      <button className="button--sm button--secondary" onClick={onInstallClick}>
-        Встановити
-      </button>
+      {isIOS ? (
+        <div>
+          <h3 className={styles.title}>
+            Щоб встановити додаток на IOS Safari слідуйте інструкції: (працює
+            тільки в Safari)
+          </h3>
+          <ul>
+            <li className={styles.step}>
+              Натисніть кнопку поділитись <img src="/images/share-safari.png" />
+            </li>
+            <li className={styles.step}>
+              Додайте значок на головний екран
+              <img src="/images/save-on-home-page.png" />
+            </li>
+          </ul>
+        </div>
+      ) : (
+        <>
+          <h3 className={styles.title}>
+            Встановіть додаток щоб заощаджувати час і легше нас знаходити!
+          </h3>
+          <button
+            className="button--sm button--secondary"
+            onClick={onInstallClick}
+          >
+            Встановити
+          </button>
+        </>
+      )}
     </div>
   ) : (
     <></>

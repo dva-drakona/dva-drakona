@@ -36,3 +36,19 @@
     opacity: 1;
     transition: 0.3s ease-in-out;
 }
+
+.step {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $white;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 400;
+    margin: 10px 0;
+
+    img {
+        height: 40px;
+        margin-left: 10px;
+    }
+}
