@@ -78,7 +78,7 @@ const InstallPwa = () => {
     return null;
   }
 
-  return isMessageShow && supportsPWA ? (
+  return isMessageShow && supportsPWA && !isAppInstalled ? (
     <div className={styles.container}>
       {isIOS && <h1>IOS</h1>}
       <div
