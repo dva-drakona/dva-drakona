@@ -12,12 +12,15 @@ const InstallPwa = () => {
       e.preventDefault();
       setSupportsPWA(true);
       setPromptInstall(e);
+      console.log(e);
     };
     window.addEventListener(`beforeinstallprompt`, handler);
     return () => window.removeEventListener(`transitionend`, handler);
   }, []);
 
   const onInstallClick = (e: any) => {
+    console.log(`test`);
+    console.log(promptInstall);
     e.preventDefault();
     if (promptInstall) {
       promptInstall.prompt();
